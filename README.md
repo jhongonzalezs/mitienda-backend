@@ -47,27 +47,31 @@ cd mitienda-backend
 - cd ..
 
 # Abre 5 terminales y ejecuta lo siguiente en cada una:
-
+## auth
 - cd auth_service
 - source venv/bin/activate
 - cd ..
 - uvicorn auth_service.main:app --reload --port 8001
 
+## cart
 - cd cart_service
 - source venv/bin/activate
 - cd ..
 - uvicorn cart_service.main:app --reload --port 8002
 
+## category
 - cd category_service
 - source venv/bin/activate
 - cd ..
 - uvicorn category_service.main:app --reload --port 8003
 
+## order
 - cd order_service
 - source venv/bin/activate
 - cd ..
 - uvicorn order_service.main:app --reload --port 8004
 
+## product
 - cd product_service
 - source venv/bin/activate
 - cd ..
