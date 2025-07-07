@@ -1,0 +1,30 @@
+# Ignorar entornos virtuales locales por servicio
+auth_service/venv/
+cart_service/venv/
+category_service/venv/
+order_service/venv/
+product_service/venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uvicorn cache
+*.pid
+
+# Carpeta de imágenes subidas (product_service)
+product_service/uploads/
