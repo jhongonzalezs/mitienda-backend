@@ -87,6 +87,8 @@ cd mitienda-backend
 - cd ..
 - python -m pytest nombre_del_servicio/tests
 
+## ejemplo: 
+
 - cd auth_service
 - source venv/bin/activate
 - cd ..
