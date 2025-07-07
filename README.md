@@ -93,3 +93,68 @@ cd mitienda-backend
 - source venv/bin/activate
 - cd ..
 - python -m pytest auth_service/tests
+
+
+
+
+
+
+
+
+## 📄 Caso de Uso: Registrar Pedido
+
+**ID:** CU-005  
+**Nombre del caso de uso:** Registrar Pedido (Orden de Compra)  
+**Actor principal:** Usuario  
+**Descripción:**  
+El usuario realiza una compra desde el frontend seleccionando productos previamente agregados en su carrito. El sistema registra estos productos como un nuevo pedido mediante el microservicio `order_service`.
+
+---
+
+### ✅ Precondiciones
+
+- El usuario debe haber iniciado sesión (`auth_service`).
+- El usuario debe tener productos agregados al carrito (`cart_service`).
+- Los productos deben existir en el sistema (`product_service`).
+
+---
+
+### 🔁 Flujo Principal
+
+| Paso | Actor   | Acción |
+|------|---------|--------|
+| 1    | Usuario | Inicia sesión en la plataforma (`POST /users/login`) |
+| 2    | Usuario | Agrega productos al carrito (`POST /cart`) |
+| 3    | Usuario | Confirma la compra desde el carrito |
+| 4    | Sistema | Recupera los productos del carrito del usuario |
+| 5    | Sistema | Envía los productos como `OrderItemCreate[]` a `POST /orders` |
+| 6    | Sistema | Registra el pedido en la tabla `order_items` |
+| 7    | Sistema | Devuelve mensaje de éxito y los datos del pedido registrado |
+
+---
+
+### ❗️Flujos Alternativos
+
+- **Producto no existente**: Si el `product_id` no existe, el sistema responde con `404 Producto no encontrado`.
+- **Cantidad inválida**: Si `quantity <= 0`, se responde con un error `400`.
+
+---
+
+### ✅ Postcondiciones
+
+- El pedido queda almacenado en la base de datos en la tabla `order_items`.
+- El usuario puede consultar sus pedidos usando:
+  - `GET /orders` para ver todos los pedidos
+  - `GET /orders/{order_id}` para ver los detalles de uno
+
+---
+
+### 🧱 Tablas Relacionadas
+
+- **order_items**
+```sql
+id INT PRIMARY KEY AUTO_INCREMENT,
+order_id INT,
+product_id INT,
+quantity INT,
+unit_price FLOAT
