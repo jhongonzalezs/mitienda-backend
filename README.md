@@ -40,50 +40,50 @@ cd mitienda-backend
 
 # Repite en cada carpeta: auth_service, cart_service, category_service, product_service, order_service
 
-cd nombre_del_servicio
-python -m venv venv
-source venv/bin/activate (linux)
-pip install -r requirements.txt
-cd ..
+- cd nombre_del_servicio
+- python -m venv venv
+- source venv/bin/activate (linux)
+- pip install -r requirements.txt
+- cd ..
 
 # Abre 5 terminales y ejecuta lo siguiente en cada una:
 
-cd auth_service
-source venv/bin/activate
-cd ..
-uvicorn auth_service.main:app --reload --port 8001
+- cd auth_service
+- source venv/bin/activate
+- cd ..
+- uvicorn auth_service.main:app --reload --port 8001
 
-cd cart_service
-source venv/bin/activate
-cd ..
-uvicorn cart_service.main:app --reload --port 8002
+- cd cart_service
+- source venv/bin/activate
+- cd ..
+- uvicorn cart_service.main:app --reload --port 8002
 
-cd category_service
-source venv/bin/activate
-cd ..
-uvicorn category_service.main:app --reload --port 8003
+- cd category_service
+- source venv/bin/activate
+- cd ..
+- uvicorn category_service.main:app --reload --port 8003
 
-cd order_service
-source venv/bin/activate
-cd ..
-uvicorn order_service.main:app --reload --port 8004
+- cd order_service
+- source venv/bin/activate
+- cd ..
+- uvicorn order_service.main:app --reload --port 8004
 
-cd product_service
-source venv/bin/activate
-cd ..
-uvicorn product_service.main:app --reload --port 8005
+- cd product_service
+- source venv/bin/activate
+- cd ..
+- uvicorn product_service.main:app --reload --port 8005
 
 
 
 # forma correcta de ejecutar las pruebas con pytest
 
 
-cd nombre_del_servicio
-source venv/bin/activate
-cd ..
-python -m pytest nombre_del_servicio/tests
+- cd nombre_del_servicio
+- source venv/bin/activate
+- cd ..
+- python -m pytest nombre_del_servicio/tests
 
-cd auth_service
-source venv/bin/activate
-cd ..
-python -m pytest auth_service/tests
+- cd auth_service
+- source venv/bin/activate
+- cd ..
+- python -m pytest auth_service/tests
